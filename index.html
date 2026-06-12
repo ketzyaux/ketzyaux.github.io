@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ketzya UX — UX Designer research-driven. Psicóloga de formación, diseñadora de experiencias digitales intuitivas y efectivas.">
+  <meta name="author" content="Ketzya UX">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ketzya UX — UX Designer · Research-driven">
+  <meta property="og:description" content="Portafolio de UX Design. Proyectos donde la investigación y el diseño resolvieron problemas reales.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-portrait.jpg">
+
+  <title>Ketzya UX — UX Designer · Research-driven</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+       ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="navbar__logo">Ketzya UX</a>
+
+    <button class="navbar__toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#portafolio">Portafolio</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ═══════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <p class="hero__greeting">Hola, soy</p>
+        <h1 class="hero__name">Ketzya</h1>
+        <p class="hero__role"><span class="hero__role-line"></span> UX Designer · Research-driven</p>
+        <p class="hero__description">Convierto complejidad humana en productos que generan valor real: para las personas y para el negocio.</p>
+        <div class="hero__buttons">
+          <a href="#portafolio" class="btn btn--hero-filled">Ver Portafolio</a>
+          <a href="#contacto" class="btn btn--hero-outline">Contáctame</a>
+        </div>
+      </div>
+
+      <div class="hero__image-wrapper">
+        <img
+          src="assets/images/hero-portrait.jpg"
+          alt="Ketzya — UX Designer"
+          class="hero__image"
+          loading="eager"
+        >
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-text">Scroll</span>
+        <svg class="hero__scroll-arrow" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 4V16M10 16L4 10M10 16L16 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SOBRE MÍ
+         ═══════════════════════════════════════════ -->
+    <section class="about" id="sobre-mi">
+      <!-- LEFT COLUMN — Perfil -->
+      <div class="about__col about__col--left reveal">
+        <span class="about__label">PERFIL</span>
+        <h2 class="about__title">Sobre mí</h2>
+        <div class="about__underline"></div>
+
+        <div class="about__bio">
+          <p>Soy investigadora y diseñadora UX con formación en Psicología. Diseño productos digitales éticos, inclusivos y centrados en las personas, combinando investigación, diseño estratégico y principios de psicología cognitiva y economía del comportamiento para transformar necesidades de los usuarios en soluciones que generan valor para las personas y los negocios.</p>
+          <p>Mi interés por entender cómo las personas piensan, toman decisiones e interactúan con su entorno me llevó a encontrar en el UX la convergencia entre ciencia y diseño. Desde entonces, me he enfocado en descubrir insights y traducirlos en experiencias digitales más intuitivas, útiles y significativas.</p>
+          <p>He trabajado en el sector fintech liderando procesos de investigación y colaborando en el diseño de productos digitales. Disfruto especialmente analizar los factores cognitivos, emocionales y contextuales que influyen en el comportamiento de los usuarios para crear experiencias más accesibles, eficientes y satisfactorias.</p>
+        </div>
+
+        <a href="assets/CV_Ketzya.pdf" class="btn btn--cv" id="btn-cv" download>
+          Descargar CV
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 18 14" fill="none"><path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <!-- RIGHT COLUMN — Capacidades -->
+      <div class="about__col about__col--right reveal">
+        <span class="about__label">CAPACIDADES</span>
+        <h3 class="about__subtitle">Habilidades y herramientas</h3>
+        <div class="about__underline"></div>
+
+        <div class="about__skills-group">
+          <span class="about__skills-label">RESEARCH &amp; DESIGN</span>
+          <div class="about__pills">
+            <span class="pill">Users Interview</span>
+            <span class="pill">Usability testing</span>
+            <span class="pill">Service design</span>
+            <span class="pill">Surveys</span>
+            <span class="pill">Behavioral Economics</span>
+            <span class="pill">Heurísticas de Nielsen</span>
+            <span class="pill">Prototipado</span>
+            <span class="pill">Design Systems</span>
+            <span class="pill">Wireframing</span>
+          </div>
+        </div>
+
+        <div class="about__skills-group">
+          <span class="about__skills-label">TOOLS</span>
+          <div class="about__pills">
+            <span class="pill">Figma</span>
+            <span class="pill">Notion</span>
+            <span class="pill">PostHog</span>
+            <span class="pill">n8n</span>
+            <span class="pill">Antigravity</span>
+            <span class="pill">Excel</span>
+            <span class="pill">Claude Design</span>
+            <span class="pill">UXPilot</span>
+            <span class="pill">BoomAI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PORTAFOLIO — Casos de estudio
+         ═══════════════════════════════════════════ -->
+    <section class="portfolio" id="portafolio">
+      <div class="portfolio__header reveal">
+        <span class="portfolio__label">CASOS DE ESTUDIO</span>
+        <h2 class="portfolio__title">Cuando entender al usuario se<br><span class="portfolio__title-underline">convierte en estrategia.</span></h2>
+        <p class="portfolio__subtitle">Proyectos donde la investigación y el diseño resolvieron problemas reales.</p>
+      </div>
+
+      <div class="portfolio__grid reveal-stagger">
+        <!-- Card 1 -->
+        <a href="caso-usuarios.html" class="card reveal">
+          <div class="card__top" style="background-image: url('assets/images/funnel.png?v=2'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #fff;">
+            <span class="tag">UX Research</span>
+          </div>
+          <div class="card__bottom">
+            <h3 class="card__title">Cuando las palabras no bastan: session replays como fuente de verdad</h3>
+            <p class="card__desc">Cómo las session replays revelaron el comportamiento de 20.000 usuarios cuando las entrevistas tradicionales no eran viables.</p>
+            <p class="card__label">ASPECTOS CLAVE</p>
+            <ul class="card__aspects-list">
+              <li>~20.000 abandonos analizados en el punto de fricción</li>
+              <li>Caída del 100% al 44% diagnosticada sin reclutar un solo usuario</li>
+              <li>8 recomendaciones priorizadas con hipótesis y justificación</li>
+            </ul>
+            <div class="card__cta-wrapper">
+              <span class="card__cta">
+                Ver caso
+                <svg class="card__cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="caso-investigar.html" class="card reveal">
+          <div class="card__top">
+            <span class="tag">UX Research</span>
+          </div>
+          <div class="card__bottom">
+            <h3 class="card__title">Rediseño página de precios</h3>
+            <p class="card__desc">Cómo un análisis heurístico y behavioral economics derivaron en un rediseño que mejoró la conversión un 35%.</p>
+            <p class="card__label">ASPECTOS CLAVE</p>
+            <ul class="card__aspects-list">
+              <li>Análisis heurístico + Ley de Hick, anclaje y aversión a la pérdida</li>
+              <li>Conversión aumentó de ~46% a 62%</li>
+              <li>Mejora relativa del 35% en el momento más crítico del funnel</li>
+            </ul>
+            <div class="card__cta-wrapper">
+              <span class="card__cta">
+                Ver caso
+                <svg class="card__cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="caso-caos.html" class="card reveal">
+          <div class="card__top">
+            <span class="tag">UX Research</span>
+          </div>
+          <div class="card__bottom">
+            <h3 class="card__title">El impuesto alto que nadie explicó</h3>
+            <p class="card__desc">Cómo una investigación mixta descubrió que el churn no era por precio sino por pérdida de confianza.</p>
+            <p class="card__label">ASPECTOS CLAVE</p>
+            <ul class="card__aspects-list">
+              <li>NPS + 9 entrevistas con usuarios en churn</li>
+              <li>3 causas reales identificadas, ninguna era la hipótesis inicial</li>
+              <li>Tickets de soporte por impuesto alto redujeron un 25%</li>
+            </ul>
+            <div class="card__cta-wrapper">
+              <span class="card__cta">
+                Ver caso
+                <svg class="card__cta-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         METODOLOGÍA
+         ═══════════════════════════════════════════ -->
+    <section class="methodology" id="metodologia">
+      <div class="methodology__top reveal">
+        <span class="methodology__label">METODOLOGÍA</span>
+        <h2 class="methodology__title">¿Cómo hago los procesos de<br><span class="methodology__title-underline">investigación?</span></h2>
+        <p class="methodology__description">
+          Aplico un enfoque sistemático para descubrir insights de usuario e impulsar decisiones de producto a través de una metodología de research rigurosa.
+        </p>
+      </div>
+
+      <div class="methodology__process reveal">
+        <div class="methodology__steps">
+          <div class="methodology__step">
+            <div class="methodology__circle-wrap">
+              <div class="methodology__circle">
+                <i class="ti ti-search"></i>
+              </div>
+              <span class="methodology__num">1</span>
+            </div>
+          </div>
+          <div class="methodology__step">
+            <div class="methodology__circle-wrap">
+              <div class="methodology__circle">
+                <i class="ti ti-users"></i>
+              </div>
+              <span class="methodology__num">2</span>
+            </div>
+          </div>
+          <div class="methodology__step">
+            <div class="methodology__circle-wrap">
+              <div class="methodology__circle">
+                <i class="ti ti-chart-bar"></i>
+              </div>
+              <span class="methodology__num">3</span>
+            </div>
+          </div>
+          <div class="methodology__step">
+            <div class="methodology__circle-wrap">
+              <div class="methodology__circle">
+                <i class="ti ti-bulb"></i>
+              </div>
+              <span class="methodology__num">4</span>
+            </div>
+          </div>
+          <div class="methodology__step">
+            <div class="methodology__circle-wrap">
+              <div class="methodology__circle">
+                <i class="ti ti-file-check"></i>
+              </div>
+              <span class="methodology__num">5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="methodology__labels">
+          <div class="methodology__step-info">
+            <h3>Descubrir</h3>
+            <p>Definir las preguntas de investigación, identificar stakeholders y planear la estrategia alineada con los objetivos del negocio.</p>
+          </div>
+          <div class="methodology__step-info">
+            <h3>Reclutar e investigar</h3>
+            <p>Reclutar participantes y conducir research cualitativo y cuantitativo con las metodologías adecuadas para cada contexto.</p>
+          </div>
+          <div class="methodology__step-info">
+            <h3>Analizar</h3>
+            <p>Sintetizar los hallazgos mediante affinity mapping, análisis temático y visualización de datos.</p>
+          </div>
+          <div class="methodology__step-info">
+            <h3>Generar Insights</h3>
+            <p>Transformar los datos en insights significativos y recomendaciones accionables para el equipo de producto.</p>
+          </div>
+          <div class="methodology__step-info">
+            <h3>Comunicar</h3>
+            <p>Presentar los hallazgos a stakeholders y colaborar en las estrategias de implementación.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="methodology__collab reveal">
+        <div class="methodology__collab-text">
+          <h3>Enfoque colaborativo</h3>
+          <p>La investigación de calidad no ocurre en silos. Por eso trabajo de cerca con diseñadores, product managers, ingenieros y demás stakeholders a lo largo de todo el proceso, asegurando que los hallazgos no solo se entiendan, sino que realmente se traduzcan en acción.</p>
+        </div>
+        <ul class="methodology__collab-list">
+          <li><i class="ti ti-circle-check-filled"></i><span>Reuniones periódicas con stakeholders</span></li>
+          <li><i class="ti ti-circle-check-filled"></i><span>Talleres de análisis colaborativo</span></li>
+          <li><i class="ti ti-circle-check-filled"></i><span>Documentación transparente</span></li>
+          <li><i class="ti ti-circle-check-filled"></i><span>Entregables concretos</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CONTACTO
+         ═══════════════════════════════════════════ -->
+    <section class="contact" id="contacto">
+      <div class="contact__wrapper reveal">
+        <h2 class="contact__title">¿Hablamos?</h2>
+        <p class="contact__description">Desde el comportamiento humano hasta el diseño que funciona. Trabajo con equipos para construir productos que realmente tengan sentido para las personas y los negocios. Si quieres que trabajemos juntos, escríbeme.</p>
+        <div class="contact__buttons">
+          <a href="https://www.linkedin.com/in/ketzyacarmona/" class="btn btn--outline" target="_blank" rel="noopener">
+            <svg class="btn__social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/ux.ketzya" class="btn btn--outline" target="_blank" rel="noopener">
+            <svg class="btn__social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.88 0 1.441 1.441 0 012.88 0z"/></svg>
+            Instagram
+          </a>
+          <button id="copy-email-btn" class="btn btn--outline" type="button">
+            <svg class="btn__social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Email
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer__text">© <span id="current-year">2026</span> Ketzya UX. Todos los derechos reservados.</p>
+  </footer>
+
+  <div id="toast" class="toast">El correo ketzya.ux@gmail.com está pegado en el portapapeles.</div>
+  <script src="js/main.js"></script>
+</body>
+</html>
