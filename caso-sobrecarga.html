@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Caso de estudio: De la sobrecarga cognitiva a la decisi&oacute;n informada — Ketzya UX">
-  <title>De la sobrecarga cognitiva a la decisi&oacute;n informada — Ketzya UX</title>
+  <meta name="description" content="Caso de estudio: Cuando 5 opciones son demasiadas — Ketzya UX">
+  <title>Cuando 5 opciones son demasiadas — Ketzya UX</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,10 +16,258 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ── Funnel bar chart ── */
+    .funnel-chart {
+      margin: 32px 0;
+    }
+    .funnel-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .funnel-year {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--olive-gray);
+      width: 34px;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+    .funnel-bar-wrap {
+      flex: 1;
+      background: rgba(26,54,54,0.08);
+      border-radius: 4px;
+      height: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .funnel-bar {
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+    }
+    .funnel-bar span {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .funnel-bar--base  { background: rgba(103,125,106,0.25); width: 46.8%; }
+    .funnel-bar--base span  { color: var(--olive-gray); }
+    .funnel-bar--base2 { background: rgba(103,125,106,0.25); width: 46.9%; }
+    .funnel-bar--base2 span { color: var(--olive-gray); }
+    .funnel-bar--low   { background: rgba(167,92,75,0.2);  width: 43.7%; }
+    .funnel-bar--low span   { color: #A75C4B; }
+    .funnel-bar--high  { background: var(--muted-green); width: 62.1%; }
+    .funnel-bar--high span  { color: var(--cream-card); }
+    .funnel-caption {
+      font-size: 11px;
+      color: var(--olive-gray);
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Framework table ── */
+    .framework-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+    .framework-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--olive-gray);
+      text-transform: uppercase;
+      padding: 0 16px 12px 0;
+      border-bottom: 1px solid rgba(26,54,54,0.15);
+    }
+    .framework-table td {
+      padding: 16px 16px 16px 0;
+      border-bottom: 1px solid rgba(26,54,54,0.08);
+      color: var(--dark-teal);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+    .framework-table td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+      padding-right: 24px;
+      color: var(--muted-green);
+    }
+    .framework-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── Heuristic items (matching finding-item style) ── */
+    .heuristic-item {
+      padding-bottom: 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .heuristic-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .heuristic-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .heuristic-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted-green);
+      letter-spacing: 0.05em;
+      background: rgba(103,125,106,0.12);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .heuristic-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--dark-teal);
+      margin: 0;
+    }
+    .heuristic-desc {
+      margin: 0 0 0 0;
+      color: var(--dark-teal);
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+
+    /* ── Before / After grid ── */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 8px 0 0;
+    }
+    .ba-card {
+      border-radius: 12px;
+      border: 1px solid rgba(26,54,54,0.1);
+      overflow: hidden;
+    }
+    .ba-header {
+      padding: 10px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .ba-header--before { background: #F5E6E1; color: #A75C4B; }
+    .ba-header--after  { background: #E1EBE2; color: #507A55; }
+    .ba-body { padding: 16px; }
+    .ba-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ba-list li {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--dark-teal);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(26,54,54,0.06);
+      position: relative;
+      padding-left: 16px;
+    }
+    .ba-list li:last-child { border-bottom: none; }
+    .ba-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--olive-gray);
+      font-size: 0.75rem;
+    }
+
+    /* ── Impact metrics ── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 8px 0 32px;
+    }
+    .impact-card {
+      background: var(--cream-card);
+      border: 1px solid rgba(26,54,54,0.08);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .impact-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--muted-green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .impact-label {
+      font-size: 12px;
+      color: var(--olive-gray);
+      line-height: 1.5;
+    }
+
+    /* ── Role note ── */
+    .role-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(103,125,106,0.08);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--dark-teal);
+      line-height: 1.6;
+    }
+    .role-note i {
+      color: var(--muted-green);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Image placeholder (for before/after screenshots) ── */
+    .img-placeholder {
+      background: var(--almond);
+      border-radius: 12px;
+      border: 1px solid rgba(26,54,54,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--olive-gray);
+      font-size: 13px;
+      padding: 40px 20px;
+      margin: 16px 0;
+    }
+    .img-placeholder i { font-size: 28px; opacity: 0.5; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .ba-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .impact-grid { grid-template-columns: 1fr; }
+      .funnel-bar--base  { width: 46.8%; }
+      .funnel-bar--high  { width: 62.1%; }
+    }
+  </style>
 </head>
 <body class="case-study-page">
 
-  <!-- NAVBAR — Consistent with home, but pointing to index anchors -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar--scrolled" id="navbar">
     <a href="index.html" class="navbar__logo">Ketzya UX</a>
 
@@ -38,18 +286,18 @@
 
   <main>
     <!-- CASE HERO -->
-    <!-- CASE HERO -->
     <header class="case-hero">
       <div class="case-hero__container">
-        <span class="case-hero__subtitle">Heuristic analysis · Behavioral economics · Fintech colombiana · 2025</span>
-        <h1 class="case-hero__title">De la sobrecarga cognitiva a la decisi&oacute;n informada</h1>
-        <p class="case-hero__lead">El equipo de datos detect&oacute; una ca&iacute;da en la pantalla de selecci&oacute;n de planes. Hice un an&aacute;lisis heur&iacute;stico para identificar la fricci&oacute;n — y encontr&eacute; una p&aacute;gina cognitivamente exigente que inhib&iacute;a la decisi&oacute;n en vez de facilitarla.</p>
-        <p class="case-hero__role"><strong>Rol:</strong> UX Researcher</p>
+        <span class="case-hero__subtitle">Behavioral design · Heuristic analysis · Fintech colombiana · 2025</span>
+        <h1 class="case-hero__title">Cuando 5 opciones son demasiadas</h1>
+        <p class="case-hero__lead">La conversión en la pantalla de planes venía cayendo durante tres años seguidos. Usé análisis heurístico y behavioral economics para identificar dónde estaba la fricción — y las recomendaciones derivaron en un rediseño que movió la conversión 16 puntos porcentuales.</p>
+        <p class="case-hero__role"><strong>Rol:</strong> UX Researcher · Análisis y recomendaciones</p>
         <div class="case-hero__tags">
           <span class="tag">Behavioral design</span>
-          <span class="tag">Cognitive psychology</span>
-          <span class="tag">Heuristic analysis</span>
+          <span class="tag">Análisis heurístico</span>
+          <span class="tag">Psicología cognitiva</span>
           <span class="tag">Fintech</span>
+          <span class="tag">Optimización de conversión</span>
         </div>
       </div>
     </header>
@@ -57,7 +305,19 @@
     <!-- CASE MAIN CONTENT -->
     <section class="case-content">
       <div class="case-content__container">
-        
+
+        <!-- Imagen antes (screenshot pantalla original) -->
+        <img
+          src="assets/images/planes-antes.png"
+          alt="Pantalla original de planes con 5 opciones simultáneas sin jerarquía clara"
+          class="case-main-image"
+          style="margin-bottom: 12px;"
+        >
+        <p class="case-image-caption" style="text-align: left; margin-bottom: 60px;">
+          <strong>Pantalla original:</strong><br>
+          Cinco planes expuestos en paralelo, sin jerarquía, con nombres orientados al canal y bloques de texto de longitud inconsistente. El usuario debe leer y comparar todo antes de poder decidir.
+        </p>
+
         <!-- 01 Contexto -->
         <article class="case-section">
           <div class="case-section__sidebar">
@@ -65,125 +325,212 @@
             <h2 class="case-section__title">El problema</h2>
           </div>
           <div class="case-section__content">
-            <p>El equipo de datos detect&oacute; una ca&iacute;da en la pantalla de selecci&oacute;n de planes. Hice un an&aacute;lisis heur&iacute;stico para identificar la fricci&oacute;n — y encontr&eacute; una p&aacute;gina cognitivamente exigente que inhib&iacute;a la decisi&oacute;n en vez de facilitarla.</p>
-            <p>Cinco opciones simult&aacute;neas, nombres gen&eacute;ricos, bloques de texto paralelos. Todo esto, en el momento m&aacute;s cr&iacute;tico para un usuario que ya llega predispuesto: declarar renta no es una elecci&oacute;n, es una obligaci&oacute;n.</p>
-            <img src="assets/images/Planes%20de%20precios%20viejo.png" alt="Planes de precios viejos" class="case-main-image" style="margin-top: 24px;">
+            <p>Declarar renta no es una elección: es una obligación. El usuario que llega a la pantalla de planes ya decidió usar el producto. Lo que queda es elegir <em>cómo</em>. Y es justo ahí donde los datos mostraban una caída sostenida.</p>
+            <p>La conversión entre la pantalla de planes y el siguiente paso del funnel venía deteriorándose año tras año. En 2023 llegó a su punto más bajo: menos de la mitad de quienes veían los planes avanzaban. El PM me compartió el dato y me pidió identificar dónde estaba la fricción.</p>
+            <p>Mi hipótesis inicial fue que el problema no era el precio ni el producto: era <strong>la carga cognitiva del momento decisional</strong>. Usé análisis heurístico anclado en behavioral economics para validarla.</p>
+
+            <div class="role-note">
+              <i class="ti ti-info-circle" aria-hidden="true"></i>
+              <span>Mi rol fue el análisis y las recomendaciones. La ejecución visual del rediseño estuvo a cargo del equipo de producto.</span>
+            </div>
           </div>
         </article>
 
-        <!-- 02 Marco aplicado -->
+        <!-- 02 Evidencia -->
         <article class="case-section">
           <div class="case-section__sidebar">
-            <span class="case-section__number">02 — Marco</span>
-            <h2 class="case-section__title">Marco aplicado</h2>
+            <span class="case-section__number">02 — Evidencia</span>
+            <h2 class="case-section__title">La caída histórica</h2>
+            <p style="margin-top: 16px; opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Conversión de usuarios que veían la pantalla de planes y avanzaban al siguiente paso del funnel.</p>
           </div>
           <div class="case-section__content">
-            <div style="overflow-x:auto;">
-              <table style="width:100%; border-collapse: collapse; text-align: left; font-size: 1rem; color: var(--dark-teal); margin-top: 12px;">
-                <thead>
-                  <tr style="border-bottom: 2px solid var(--divider);">
-                    <th style="padding: 12px; font-weight: 700;">Principio</th>
-                    <th style="padding: 12px; font-weight: 700;">Problema identificado</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid var(--divider);">
-                    <td style="padding: 16px 12px;"><strong>Ley de Hick</strong></td>
-                    <td style="padding: 16px 12px;">M&aacute;s opciones = m&aacute;s tiempo de decisi&oacute;n. Con 5 planes, la probabilidad de abandono aumenta.</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--divider);">
-                    <td style="padding: 16px 12px;"><strong>Sesgo de anclaje</strong></td>
-                    <td style="padding: 16px 12px;">El primer precio visto condiciona c&oacute;mo se perciben todos los dem&aacute;s.</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--divider);">
-                    <td style="padding: 16px 12px;"><strong>Aversi&oacute;n a la p&eacute;rdida</strong></td>
-                    <td style="padding: 16px 12px;">Pagar impuestos ya se siente como perder. El dise&ntilde;o no debe a&ntilde;adir m&aacute;s tensi&oacute;n.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </article>
 
-        <!-- 03 Antes / Después -->
-        <article class="case-section">
-          <div class="case-section__sidebar">
-            <span class="case-section__number">03 — Redise&ntilde;o</span>
-            <h2 class="case-section__title">Antes &rarr; Despu&eacute;s</h2>
-          </div>
-          <div class="case-section__content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px;">
-            <div>
-              <h3 style="font-size: 1.25rem; font-family: var(--font-heading); color: var(--dark-teal); margin-bottom: 16px;">Antes</h3>
-              <ul class="case-list">
-                <li>5 planes sin jerarqu&iacute;a clara</li>
-                <li>Nombres descriptivos pero no memorables ("La app lo hace por ti en 2 horas")</li>
-                <li>Sin gu&iacute;a sobre cu&aacute;l plan elegir seg&uacute;n el perfil del usuario</li>
-                <li>Alta carga visual: texto en paralelo sin respiro</li>
-              </ul>
-            </div>
-            <div>
-              <h3 style="font-size: 1.25rem; font-family: var(--font-heading); color: var(--dark-teal); margin-bottom: 16px;">Despu&eacute;s</h3>
-              <ul class="case-list">
-                <li>Dos categor&iacute;as claras: app vs. experto</li>
-                <li>Nombres orientados al estado del usuario: <em>Sin af&aacute;n / Expr&eacute;s</em></li>
-                <li>Recomendaci&oacute;n por perfil visible desde el inicio</li>
-                <li>Dise&ntilde;o limpio con jerarqu&iacute;a visual y espacio en blanco</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- 04 Heurísticas -->
-        <article class="case-section">
-          <div class="case-section__sidebar">
-            <span class="case-section__number">04 — An&aacute;lisis</span>
-            <h2 class="case-section__title">Heur&iacute;sticas de Nielsen detectadas</h2>
-          </div>
-          <div class="case-section__content finding-list">
-            
-            <div class="finding-item">
-              <div class="finding-header">
-                <span class="finding-num">#4</span>
-                <h3 class="finding-title">Consistencia</h3>
+            <div class="funnel-chart">
+              <div class="funnel-row">
+                <span class="funnel-year">2021</span>
+                <div class="funnel-bar-wrap">
+                  <div class="funnel-bar funnel-bar--base"><span>46,8%</span></div>
+                </div>
               </div>
-              <p class="finding-desc">Los nombres de planes variaban en longitud y formato, rompiendo la comparaci&oacute;n r&aacute;pida.</p>
+              <div class="funnel-row">
+                <span class="funnel-year">2022</span>
+                <div class="funnel-bar-wrap">
+                  <div class="funnel-bar funnel-bar--base2"><span>46,9%</span></div>
+                </div>
+              </div>
+              <div class="funnel-row">
+                <span class="funnel-year">2023</span>
+                <div class="funnel-bar-wrap">
+                  <div class="funnel-bar funnel-bar--low"><span>43,7% ↓</span></div>
+                </div>
+              </div>
+              <div class="funnel-row">
+                <span class="funnel-year">2024</span>
+                <div class="funnel-bar-wrap">
+                  <div class="funnel-bar funnel-bar--high"><span>62,1% ↑</span></div>
+                </div>
+              </div>
+              <p class="funnel-caption">Usuarios nuevos · Propietario: sí · Paso: PLANES → INFO PERSONAL · Fuente: dashboard interno</p>
             </div>
 
-            <div class="finding-item">
-              <div class="finding-header">
-                <span class="finding-num">#6</span>
-                <h3 class="finding-title">Reconocimiento sobre recuerdo</h3>
-              </div>
-              <p class="finding-desc">Los nombres originales requer&iacute;an leer todo el bloque para entender la diferencia. Las etiquetas nuevas permiten reconocer el plan de un vistazo.</p>
-            </div>
-
-            <div class="finding-item" style="border-bottom: none; padding-bottom: 0;">
-              <div class="finding-header">
-                <span class="finding-num">#8</span>
-                <h3 class="finding-title">Dise&ntilde;o minimalista</h3>
-              </div>
-              <p class="finding-desc">La p&aacute;gina original mostraba todo al mismo tiempo. El redise&ntilde;o aplica progresi&oacute;n: primero el canal, luego la urgencia.</p>
-            </div>
+            <p>Durante 2021 y 2022, la conversión se mantuvo estable en torno al 46–47%. En 2023 bajó a 43,7%, el punto más bajo registrado. Esto activó la revisión. El dato era consistente con lo que la pantalla comunicaba visualmente: el usuario debía evaluar cinco planes en paralelo antes de poder tomar cualquier decisión.</p>
 
           </div>
         </article>
 
-        <!-- 05 Impacto -->
+        <!-- 03 Marco -->
         <article class="case-section">
           <div class="case-section__sidebar">
-            <span class="case-section__number">05 — Resultados</span>
-            <h2 class="case-section__title">Impacto</h2>
+            <span class="case-section__number">03 — Marco teórico</span>
+            <h2 class="case-section__title">Las lentes que usé</h2>
           </div>
           <div class="case-section__content">
-            <p>Tras el redise&ntilde;o (temporada 2025), la conversi&oacute;n en la pantalla de planes <strong>aument&oacute; ~16 puntos porcentuales</strong> respecto al promedio hist&oacute;rico de los tres a&ntilde;os anteriores: de ~46% a 62%.</p>
-            <p style="font-size: 1.5rem; font-weight: 700; color: var(--dark-teal); margin-top: 24px;">Mejora relativa del 35% <span style="font-size: 1rem; font-weight: 400;">en el momento m&aacute;s cr&iacute;tico del funnel.</span></p>
+            <p>No apliqué estos frameworks como adorno conceptual. Cada uno me ayudó a nombrar algo observable en la pantalla:</p>
+
+            <table class="framework-table">
+              <thead>
+                <tr>
+                  <th>Principio</th>
+                  <th>Problema identificado en la pantalla</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ley de Hick</td>
+                  <td>El tiempo de decisión crece con el número de opciones. Con 5 planes simultáneos y sin jerarquía, el usuario no sabe por dónde empezar — y el abandono se vuelve la salida más fácil.</td>
+                </tr>
+                <tr>
+                  <td>Sesgo de anclaje</td>
+                  <td>El primer precio que ve el usuario condiciona cómo percibe todos los demás. En la pantalla original, el orden de los planes no tenía lógica estratégica: el ancla se dejaba al azar.</td>
+                </tr>
+                <tr>
+                  <td>Aversión a la pérdida</td>
+                  <td>Pagar impuestos ya activa una respuesta emocional negativa. Cada elemento de fricción en el diseño se acumula sobre un usuario que llega predispuesto. El diseño no debe añadir más tensión al proceso.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- 04 Análisis -->
+        <article class="case-section">
+          <div class="case-section__sidebar">
+            <span class="case-section__number">04 — Análisis</span>
+            <h2 class="case-section__title">Heurísticas detectadas</h2>
+            <p style="margin-top: 16px; opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Revisé la pantalla contra las heurísticas de Nielsen, identificando tres violaciones que explicaban la fricción observada en los datos.</p>
+          </div>
+          <div class="case-section__content">
+
+            <div class="heuristic-item">
+              <div class="heuristic-header">
+                <span class="heuristic-num">#4</span>
+                <h3 class="heuristic-title">Consistencia y estándares</h3>
+              </div>
+              <p class="heuristic-desc">Los nombres de los planes variaban en longitud y estructura: "Por WhatsApp" frente a "La app lo hace por ti en 24 horas". El usuario no podía escanear y comparar rápidamente — tenía que leer cada bloque completo antes de poder diferenciarlos. Esta inconsistencia rompía el patrón de comparación que el usuario esperaba en una página de precios.</p>
+            </div>
+
+            <div class="heuristic-item">
+              <div class="heuristic-header">
+                <span class="heuristic-num">#6</span>
+                <h3 class="heuristic-title">Reconocimiento sobre recuerdo</h3>
+              </div>
+              <p class="heuristic-desc">Entender qué diferenciaba a cada plan exigía retener y comparar información de múltiples columnas simultáneamente. El diseño forzaba memoria en lugar de reconocimiento. El rediseño reemplazó descripciones extensas por etiquetas cortas ("Sin afán", "Exprés") que comunican la propuesta de valor de un vistazo.</p>
+            </div>
+
+            <div class="heuristic-item">
+              <div class="heuristic-header">
+                <span class="heuristic-num">#8</span>
+                <h3 class="heuristic-title">Diseño estético y minimalista</h3>
+              </div>
+              <p class="heuristic-desc">La pantalla original exponía simultáneamente precio, canal, tiempo de entrega y método de comunicación para cada uno de los 5 planes. Toda la información visible al mismo tiempo, sin progresión. El rediseño introduce un flujo de dos pasos: primero el usuario elige el canal (app o experto), luego el nivel de urgencia. Menos decisiones en paralelo, más claridad en cada momento.</p>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- 05 Antes / Después -->
+        <article class="case-section">
+          <div class="case-section__sidebar">
+            <span class="case-section__number">05 — Rediseño</span>
+            <h2 class="case-section__title">Antes y después</h2>
+          </div>
+          <div class="case-section__content">
+
+            <div class="ba-grid">
+              <div class="ba-card">
+                <div class="ba-header ba-header--before">Antes</div>
+                <div class="ba-body">
+                  <ul class="ba-list">
+                    <li>5 planes sin jerarquía visible</li>
+                    <li>Nombres orientados al canal ("Por WhatsApp")</li>
+                    <li>Sin guía sobre qué plan corresponde a qué perfil</li>
+                    <li>Ancla de precio sin lógica estratégica</li>
+                    <li>Alta densidad visual, sin espacio de respiro</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="ba-card">
+                <div class="ba-header ba-header--after">Después</div>
+                <div class="ba-body">
+                  <ul class="ba-list">
+                    <li>Dos categorías claras: app vs. experto</li>
+                    <li>Nombres orientados al estado del usuario ("Sin afán" / "Exprés")</li>
+                    <li>Descripción del perfil ideal para cada categoría</li>
+                    <li>4 planes con diferencial claro: urgencia y canal</li>
+                    <li>Jerarquía visual limpia y espacio blanco deliberado</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Imagen después — reemplazar src cuando tengas el asset -->
+            <img
+              src="assets/images/planes-despues.png"
+              alt="Pantalla rediseñada de planes con dos categorías claras y jerarquía visual"
+              class="case-main-image"
+              style="margin-top: 24px; margin-bottom: 0;"
+            >
+            <p class="case-image-caption" style="text-align: left; margin-bottom: 0; margin-top: 10px;">
+              <strong>Pantalla rediseñada:</strong><br>
+              Dos categorías, cuatro planes, etiquetas orientadas al estado del usuario. La decisión se toma en dos pasos en lugar de cinco simultáneos.
+            </p>
+
+          </div>
+        </article>
+
+        <!-- 06 Impacto -->
+        <article class="case-section">
+          <div class="case-section__sidebar">
+            <span class="case-section__number">06 — Resultado</span>
+            <h2 class="case-section__title">Impacto medido</h2>
+          </div>
+          <div class="case-section__content">
+
+            <div class="impact-grid">
+              <div class="impact-card">
+                <div class="impact-number">+16 pp</div>
+                <div class="impact-label">Incremento en conversión planes → siguiente paso</div>
+              </div>
+              <div class="impact-card">
+                <div class="impact-number">+35%</div>
+                <div class="impact-label">Mejora relativa respecto al promedio histórico</div>
+              </div>
+              <div class="impact-card">
+                <div class="impact-number">62,1%</div>
+                <div class="impact-label">Conversión 2024, el más alto en 4 años de datos</div>
+              </div>
+            </div>
+
+            <p>El incremento no vino de cambiar el precio, el producto ni la propuesta de valor. Vino de reducir la carga decisional en el momento más crítico del funnel: cuando el usuario ya quiere avanzar pero el diseño se lo dificulta.</p>
+            <p>Esto confirma que la fricción cognitiva tiene costo de conversión medible — y que identificarla con precisión, con herramientas de behavioral design, es una ventaja concreta para cualquier equipo de producto.</p>
+
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- ¿TIENES UN RETO PARECIDO? -->
+    <!-- CTA -->
     <section class="case-cta">
       <div class="case-cta__wrapper">
         <h2 class="case-cta__title">¿Tienes un reto parecido?</h2>
@@ -207,13 +554,13 @@
   </main>
 
   <footer class="footer">
-    <p class="footer__text">© <span id="current-year">2026</span> Ketzya UX. Todos los derechos reservados.</p>
+    <p class="footer__text">© <span id="current-year">2025</span> Ketzya UX. Todos los derechos reservados.</p>
   </footer>
 
   <!-- Image Modal -->
   <div id="image-modal" class="image-modal">
     <span class="image-modal__close">&times;</span>
-    <img class="image-modal__content" id="image-modal-img">
+    <img class="image-modal__content" id="image-modal-img" alt="">
   </div>
 
   <!-- Toast Notification -->
