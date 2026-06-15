@@ -26,12 +26,30 @@ http.createServer((req, res) => {
   if (url === '/') url = '/index.html';
   const filePath = path.join(ROOT, url);
   const ext = path.extname(filePath).toLowerCase();
-  fs.readFile(filePath, (err, data) => {
+  
+  const serveFile = (p, e, cb) => {
+    fs.readFile(p, (err, data) => {
+      if (err) return cb(err);
+      res.writeHead(200, { 'Content-Type': MIME[e] || 'application/octet-stream' });
+      res.end(data);
+    });
+  };
+
+  serveFile(filePath, ext, (err) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      return res.end('404 Not Found');
+      // Fallback: If no extension, try appending .html
+      if (ext === '') {
+        const filePathHtml = filePath + '.html';
+        serveFile(filePathHtml, '.html', (err2) => {
+          if (err2) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('404 Not Found');
+          }
+        });
+      } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('404 Not Found');
+      }
     }
-    res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
-    res.end(data);
   });
 }).listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
