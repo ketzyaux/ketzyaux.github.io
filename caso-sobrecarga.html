@@ -191,36 +191,32 @@
 
     /* ── Impact metrics ── */
     .impact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      margin: 16px 0 32px;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 8px 0 32px;
     }
     .impact-card {
       display: flex;
-      width: 360px;
-      max-width: 100%;
-      height: 250px;
-      padding: 20px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 26px;
-      border-radius: 20px;
+      gap: 8px;
+      border-radius: 12px;
       background: #1A3636;
-      box-shadow: 0 8px 24px rgba(26, 54, 54, 0.12);
+      padding: 20px 16px;
+      box-shadow: 0 8px 24px rgba(26, 54, 54, 0.08);
     }
     .impact-number {
       font-family: var(--font-display);
-      font-size: 3.2rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: var(--cream-card);
       line-height: 1;
       margin: 0;
     }
     .impact-label {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--almond);
       line-height: 1.5;
       text-align: center;
@@ -266,8 +262,10 @@
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .ba-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
+      .impact-grid { grid-template-columns: 1fr; }
       .funnel-bar--base  { width: 46.8%; }
       .funnel-bar--high  { width: 62.1%; }
     }
@@ -298,7 +296,7 @@
       <div class="case-hero__container">
         <span class="case-hero__subtitle">Behavioral design · Heuristic analysis · Fintech colombiana · 2025</span>
         <h1 class="case-hero__title">Cuando 5 opciones son demasiadas</h1>
-        <p class="case-hero__lead">La conversión en la pantalla de planes llevaba años sin mejorar y en 2023 empeoró. Apliqué análisis heurístico y behavioral economics para identificar la fricción, y mis recomendaciones se tradujeron en un rediseño que movió la conversión 16 puntos porcentuales.</p>
+        <p class="case-hero__lead">La conversión en la pantalla de planes llevaba años sin mejorar y en 2023 empeoró. Apliqué análisis heurístico con un enfoque de behavioral economics para identificar la fricción, y mis recomendaciones se tradujeron en un rediseño que movió la conversión 16 puntos porcentuales.</p>
         <p class="case-hero__role"><strong>Rol:</strong> UX Researcher · Análisis y recomendaciones</p>
         <div class="case-hero__tags">
           <span class="tag">Behavioral design</span>
@@ -336,11 +334,6 @@
             <p>Declarar renta no es una elección: es una obligación. El usuario que llega a la pantalla de planes ya decidió usar el producto. Lo que queda es elegir <em>cómo</em>. Y es justo ahí donde los datos mostraban una caída sostenida.</p>
             <p>La conversión entre la pantalla de planes y el siguiente paso del funnel venía deteriorándose año tras año. En 2023 llegó a su punto más bajo: menos de la mitad de quienes veían los planes avanzaban. El PM me compartió el dato y me pidió identificar dónde estaba la fricción.</p>
             <p>Mi hipótesis inicial fue que el problema no era el precio ni el producto: era <strong>la carga cognitiva del momento decisional</strong>. Usé análisis heurístico anclado en behavioral economics para validarla.</p>
-
-            <div class="role-note">
-              <i class="ti ti-info-circle" aria-hidden="true"></i>
-              <span>Mi rol fue el análisis y las recomendaciones. La ejecución visual del rediseño estuvo a cargo del equipo de producto.</span>
-            </div>
           </div>
         </article>
 
@@ -386,77 +379,65 @@
           </div>
         </article>
 
-        <!-- 03 Marco -->
+        <!-- 03 Análisis -->
         <article class="case-section">
           <div class="case-section__sidebar">
-            <span class="case-section__number">03 — Marco teórico</span>
-            <h2 class="case-section__title">Las lentes que usé</h2>
-          </div>
-          <div class="case-section__content">
-            <p>No apliqué estos frameworks como adorno conceptual. Cada uno me ayudó a nombrar algo observable en la pantalla:</p>
-
-            <table class="framework-table">
-              <thead>
-                <tr>
-                  <th>Principio</th>
-                  <th>Problema identificado en la pantalla</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Ley de Hick</td>
-                  <td>El tiempo de decisión crece con el número de opciones. Con 5 planes simultáneos y sin jerarquía, el usuario no sabe por dónde empezar — y el abandono se vuelve la salida más fácil.</td>
-                </tr>
-                <tr>
-                  <td>Sesgo de anclaje</td>
-                  <td>El primer precio que ve el usuario condiciona cómo percibe todos los demás. En la pantalla original, el orden de los planes no tenía lógica estratégica: el ancla se dejaba al azar.</td>
-                </tr>
-                <tr>
-                  <td>Aversión a la pérdida</td>
-                  <td>Pagar impuestos ya activa una respuesta emocional negativa. Cada elemento de fricción en el diseño se acumula sobre un usuario que llega predispuesto. El diseño no debe añadir más tensión al proceso.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <!-- 04 Análisis -->
-        <article class="case-section">
-          <div class="case-section__sidebar">
-            <span class="case-section__number">04 — Análisis</span>
+            <span class="case-section__number">03 — Análisis</span>
             <h2 class="case-section__title">Heurísticas detectadas</h2>
-            <p style="margin-top: 16px; opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Revisé la pantalla contra las heurísticas de Nielsen, identificando tres violaciones que explicaban la fricción observada en los datos.</p>
+            <p style="margin-top: 16px; opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Revisé la pantalla contra las heurísticas de Nielsen, identificando tres violaciones que podrían explicar la fricción observada en los datos.</p>
           </div>
           <div class="case-section__content">
 
-            <div class="heuristic-item">
+            <p>La temporada de declaraciones de renta estaba encima. Reclutar usuarios y hacer pruebas antes del lanzamiento no era viable. Elegí análisis heurístico porque permite identificar fricción con criterio experto sin tiempo de reclutamiento, y porque el problema era suficientemente observable en la interfaz como para no necesitar usuarios para nombrarlo. Lo que no podía hacer el método era confirmar si las soluciones funcionarían. Eso lo respondería el lanzamiento.</p>
+
+            <div class="heuristic-item" style="margin-top: 24px;">
               <div class="heuristic-header">
-                <span class="heuristic-num">#4</span>
                 <h3 class="heuristic-title">Consistencia y estándares</h3>
               </div>
-              <p class="heuristic-desc">Los nombres de los planes variaban en longitud y estructura: "Por WhatsApp" frente a "La app lo hace por ti en 24 horas". El usuario no podía escanear y comparar rápidamente — tenía que leer cada bloque completo antes de poder diferenciarlos. Esta inconsistencia rompía el patrón de comparación que el usuario esperaba en una página de precios.</p>
+              <p class="heuristic-desc">Los nombres de los planes variaban en longitud y estructura: "Por WhatsApp" frente a "La app lo hace por ti en 24 horas". El usuario no podía escanear y comparar rápidamente; tenía que leer cada bloque completo antes de poder diferenciarlos. Esta inconsistencia rompía el patrón de comparación que el usuario esperaba en una página de precios. Desde el sesgo de anclaje, también significaba que el primer precio visto condicionaba la percepción de todos los demás sin ninguna intención estratégica detrás.</p>
             </div>
 
             <div class="heuristic-item">
               <div class="heuristic-header">
-                <span class="heuristic-num">#6</span>
                 <h3 class="heuristic-title">Reconocimiento sobre recuerdo</h3>
               </div>
-              <p class="heuristic-desc">Entender qué diferenciaba a cada plan exigía retener y comparar información de múltiples columnas simultáneamente. El diseño forzaba memoria en lugar de reconocimiento. El rediseño reemplazó descripciones extensas por etiquetas cortas ("Sin afán", "Exprés") que comunican la propuesta de valor de un vistazo.</p>
+              <p class="heuristic-desc">Entender qué diferenciaba a cada plan exigía retener y comparar información de múltiples columnas simultáneamente. El diseño forzaba memoria en lugar de reconocimiento. Aplicando la Ley de Hick, cinco opciones sin jerarquía aumentan el tiempo de decisión y hacen del abandono la salida más fácil. El rediseño reemplazó descripciones extensas por etiquetas cortas ("Sin afán", "Exprés") que comunican la propuesta de valor de un vistazo.</p>
             </div>
 
             <div class="heuristic-item">
               <div class="heuristic-header">
-                <span class="heuristic-num">#8</span>
                 <h3 class="heuristic-title">Diseño estético y minimalista</h3>
               </div>
-              <p class="heuristic-desc">La pantalla original exponía simultáneamente precio, canal, tiempo de entrega y método de comunicación para cada uno de los 5 planes. Toda la información visible al mismo tiempo, sin progresión. El rediseño introduce un flujo de dos pasos: primero el usuario elige el canal (app o experto), luego el nivel de urgencia. Menos decisiones en paralelo, más claridad en cada momento.</p>
+              <p class="heuristic-desc">La pantalla original exponía simultáneamente precio, canal, tiempo de entrega y método de comunicación para cada uno de los 5 planes. Toda la información visible al mismo tiempo, sin progresión. Esto agrava el efecto de aversión a la pérdida: declarar renta ya activa una respuesta emocional negativa, y cada elemento de fricción adicional se acumula sobre un usuario que llega predispuesto. El rediseño introduce un flujo de dos pasos: primero la modalidad del servicio, luego el nivel de urgencia. Menos decisiones en paralelo, más claridad en cada momento.</p>
             </div>
 
           </div>
         </article>
 
-        <!-- 05 Antes / Después -->
+        <!-- 04 Recomendaciones -->
+        <article class="case-section">
+          <div class="case-section__sidebar">
+            <span class="case-section__number">04 — Recomendaciones</span>
+            <h2 class="case-section__title">Del hallazgo al accionable</h2>
+          </div>
+          <div class="case-section__content">
+            <p>La evaluación heurística fue el método. Revisé la pantalla sistemáticamente contra los principios de Nielsen, pero la interpretación de cada hallazgo estuvo guiada por behavioral economics: cada violación heurística la leí en términos de carga cognitiva, sesgos decisionales y contexto emocional del usuario. Ese cruce fue lo que permitió traducir los problemas de diseño en accionables con justificación de comportamiento, no solo de usabilidad.</p>
+
+            <ul class="case-list">
+              <li><strong>Reducir el número de planes visibles por categoría.</strong> De cinco opciones simultáneas a dos por categoría. Menor carga cognitiva en cada paso de la decisión.</li>
+              <li><strong>Nombres orientados al estado del usuario, no al servicio.</strong> Reemplazar descripciones del canal ("Por llamada hoy mismo") por etiquetas que reflejan la situación del usuario ("Sin afán", "Exprés").</li>
+              <li><strong>Descripciones que hablan del perfil, no del producto.</strong> Cambiar el foco del copy: en vez de explicar qué hace el servicio, hablarle a quién es el usuario y cuál es su situación.</li>
+              <li><strong>Recomendación por perfil visible desde el inicio.</strong> Incluir una descripción de a quién le conviene cada categoría para que el usuario no tenga que deducirlo solo.</li>
+            </ul>
+
+            <div class="role-note">
+              <i class="ti ti-alert-circle" aria-hidden="true"></i>
+              <span>Los accionables de este caso son hipótesis fundamentadas, no verdades confirmadas. Sin validación con usuarios reales antes del lanzamiento, no había certeza de que los cambios produjeran el efecto esperado. Sin embargo, dado que no hubo tiempo para probar los cambios, la temporada tributaria actuó como prueba en producción: el incremento de 16 puntos porcentuales fue la validación de que los cambios empleados lograron una mejora significativa.</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 Rediseño -->
         <article class="case-section">
           <div class="case-section__sidebar">
             <span class="case-section__number">05 — Rediseño</span>
@@ -503,10 +484,15 @@
               Dos categorías, cuatro planes, etiquetas orientadas al estado del usuario. La decisión se toma en dos pasos en lugar de cinco simultáneos.
             </p>
 
+            <div class="role-note" style="margin-top: 16px;">
+              <i class="ti ti-info-circle" aria-hidden="true"></i>
+              <span>Mi rol fue el análisis y las recomendaciones. La ejecución visual del rediseño estuvo a cargo del equipo de producto.</span>
+            </div>
+
           </div>
         </article>
 
-        <!-- 06 Impacto -->
+        <!-- 06 Resultado -->
         <article class="case-section">
           <div class="case-section__sidebar">
             <span class="case-section__number">06 — Resultado</span>
@@ -530,8 +516,19 @@
             </div>
 
             <p>El incremento no vino de cambiar el precio, el producto ni la propuesta de valor. Vino de reducir la carga decisional en el momento más crítico del funnel: cuando el usuario ya quiere avanzar pero el diseño se lo dificulta.</p>
-            <p>Esto confirma que la fricción cognitiva tiene costo de conversión medible — y que identificarla con precisión, con herramientas de behavioral design, es una ventaja concreta para cualquier equipo de producto.</p>
+            <p>Esto confirma que la fricción cognitiva tiene costo de conversión medible, y que identificarla con precisión, con herramientas de behavioral design, es una ventaja concreta para cualquier equipo de producto.</p>
 
+          </div>
+        </article>
+
+        <!-- 07 Aprendizaje -->
+        <article class="case-section">
+          <div class="case-section__sidebar">
+            <span class="case-section__number">07 — Aprendizaje</span>
+            <h2 class="case-section__title">El impacto del behavioral design</h2>
+          </div>
+          <div class="case-section__content">
+            <p>El behavioral design puede mover métricas de negocio. Lo que cambió no fue la oferta sino cómo se presentaba en el momento decisional. Cuando el tiempo apremia, un método de inspección sin usuarios puede ser un punto de partida válido para una primera iteración. El lanzamiento fue la prueba. El siguiente paso habría sido validar antes, no después.</p>
           </div>
         </article>
 
