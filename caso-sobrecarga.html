@@ -191,30 +191,40 @@
 
     /* ── Impact metrics ── */
     .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 8px 0 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 16px 0 32px;
+      justify-content: center;
     }
     .impact-card {
-      background: var(--cream-card);
-      border: 1px solid rgba(26,54,54,0.08);
-      border-radius: 12px;
-      padding: 20px 16px;
-      text-align: center;
+      display: flex;
+      width: 360px;
+      max-width: 100%;
+      height: 250px;
+      padding: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 26px;
+      border-radius: 20px;
+      background: #1A3636;
+      box-shadow: 0 8px 24px rgba(26, 54, 54, 0.12);
     }
     .impact-number {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 3.2rem;
       font-weight: 700;
-      color: var(--muted-green);
+      color: var(--cream-card);
       line-height: 1;
-      margin-bottom: 8px;
+      margin: 0;
     }
     .impact-label {
-      font-size: 12px;
-      color: var(--olive-gray);
+      font-size: 13px;
+      color: var(--almond);
       line-height: 1.5;
+      text-align: center;
+      margin: 0;
     }
 
     /* ── Role note ── */
@@ -256,10 +266,8 @@
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .ba-grid { grid-template-columns: 1fr; }
-      .impact-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
-      .impact-grid { grid-template-columns: 1fr; }
       .funnel-bar--base  { width: 46.8%; }
       .funnel-bar--high  { width: 62.1%; }
     }
