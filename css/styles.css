@@ -838,7 +838,7 @@ a:focus-visible, button:focus-visible {
   .about { grid-template-columns: 1fr; gap: 48px; padding: 80px 48px; }
 
   .portfolio { padding: 80px 48px; }
-  .portfolio__grid { gap: 20px; }
+  .portfolio__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
   .methodology { padding: 80px 48px; }
   .methodology__top { grid-template-columns: 1fr; gap: 16px; }
@@ -847,12 +847,67 @@ a:focus-visible, button:focus-visible {
   .methodology__steps::before { left: 10%; right: 10%; }
 
   .contact { padding: 80px 48px; }
+
+  .case-hero { padding: 120px 48px 60px; }
+  .case-content { padding: 60px 48px; }
+  .case-cta { padding: 80px 48px; }
 }
 
 /* --------------------------------------------------------------------------
    RESPONSIVE — MOBILE
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  /* Case study pages — hero */
+  .case-hero { padding: 80px 20px 36px; }
+  .case-hero__title {
+    font-size: 1.7rem;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+  }
+  .case-hero__lead { font-size: 1rem; }
+  .case-hero__tags { gap: 8px; }
+  .case-hero__tags .tag { font-size: 11px; padding: 5px 12px; }
+
+  /* Case study pages — content */
+  .case-content { padding: 40px 24px; }
+  .case-cta { padding: 60px 24px; }
+
+  /* Callouts grid (60/25) — 1 column on mobile */
+  .callouts-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+  /* Evidence header — wrap on mobile */
+  .case-evidence-gallery [style*="margin-left:auto"] { margin-left: 0 !important; }
+
+  /* Section titles — reduce size to avoid overlap */
+  .case-section__title { font-size: 1.4rem; }
+  .case-section__number { font-size: 10px; }
+  .case-section { gap: 16px; padding-top: 32px; margin-bottom: 40px; }
+  .case-section__content { font-size: 0.95rem; }
+
+  /* Images — modal fix on mobile */
+  .image-modal__content { max-width: 95%; max-height: 80vh; }
+  .image-modal__close { top: 12px; right: 16px; font-size: 32px; }
+
+  /* Meta */
+  .case-meta { gap: 20px; margin-bottom: 48px; }
+
+  /* Navbar scrolled — no pill on mobile to avoid overlap with hamburger menu */
+  .navbar--scrolled {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+    padding: 12px 24px !important;
+  }
+
+  /* Methodology collab list — 1 column */
+  .methodology__collab-list { grid-template-columns: 1fr; gap: 16px; }
+
+  /* Toast — prevent overflow on small screens */
+  .toast { white-space: normal; text-align: center; width: calc(100vw - 48px); left: 24px; bottom: 24px; transform: translateX(0) translateY(120px); }
+  .toast.show { transform: translateX(0) translateY(0); }
+
   :root { --section-px: 24px; }
 
   .navbar {
@@ -900,25 +955,28 @@ a:focus-visible, button:focus-visible {
   .methodology { padding: 60px 24px; }
   .methodology__top { grid-template-columns: 1fr; }
 
-  /* Process — vertical on mobile */
+  /* Process — vertical on mobile, circle paired with its label */
   .methodology__steps {
     flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    align-items: stretch;
+    gap: 0;
     padding: 0;
   }
-  .methodology__steps::before {
-    top: 0; bottom: 0;
-    left: 50%; right: auto;
-    width: 2px; height: 100%;
-    transform: translateX(-50%);
+  .methodology__steps::before { display: none; }
+  .methodology__step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(26,54,54,0.1);
   }
-  .methodology__labels {
-    flex-direction: column;
-    gap: 24px;
-    padding: 0;
-  }
-  .methodology__step-info { text-align: center; padding: 0; }
+  .methodology__step:last-child { border-bottom: none; }
+  .methodology__circle-wrap { flex-shrink: 0; }
+  .methodology__circle { width: 56px; height: 56px; font-size: 20px; }
+  .methodology__num { bottom: -6px; width: 20px; height: 20px; font-size: 10px; }
+  .methodology__step-info { text-align: left; padding: 4px 0 0; }
+  .methodology__step-info h3 { font-size: 1.1rem; margin-bottom: 6px; }
+  .methodology__step-info p { font-size: 0.9rem; }
   .methodology__collab { padding: 32px 24px; border-radius: 16px; }
 
   /* Contact */
