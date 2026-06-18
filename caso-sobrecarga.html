@@ -401,7 +401,7 @@
               <p class="heuristic-desc"><strong>El problema:</strong> La pantalla original exponía simultáneamente 5 planes sin una jerarquía clara, mostrando al mismo tiempo precio, canal, tiempo de entrega y método de comunicación.</p>
               <p class="heuristic-desc"><strong>El sesgo conductual:</strong> Aplicando la Ley de Hick, cuando aumentas las opciones, el esfuerzo cognitivo crece drásticamente. Al no haber un anclaje visual claro, el usuario se enfrentaba a una "parálisis por análisis", donde la salida más fácil y segura para el cerebro es el abandono del flujo.</p>
               <p class="heuristic-desc"><strong>La heurística afectada:</strong> Diseño estético y minimalista. La interfaz violaba este principio al saturar visualmente al usuario con toda la densidad de información en un solo paso. Cada unidad de datos extra compitiendo en pantalla disminuía la visibilidad de lo verdaderamente importante, rompiendo el patrón de comparación rápida que el usuario necesita.</p>
-              <p class="heuristic-desc">El diagnóstico reveló que separar los planes por canales de comunicación (Llamada vs. WhatsApp) obligaba al usuario a tomar una decisión operativa rígida antes de comprar.</p>
+              <p class="heuristic-desc">El diagnóstico reveló que separar los planes por canales de comunicación (Llamada vs. WhatsApp) obligaba al usuario a tomar una decisión operativa rígida antes de comprar. La solución no fue eliminar opciones, sino consolidar la oferta mediante una estrategia de bundling: fusionamos ambos canales en un único plan híbrido dentro de la categoría "Sin afán". Así, en lugar de forzar al usuario a elegir un canal de forma anticipada, le otorgamos autonomía de uso, permitiéndole decidir sobre la marcha si prefiere chatear por WhatsApp o agendar una videollamada.</p>
             </div>
 
             <div class="heuristic-item">
@@ -457,9 +457,11 @@
           </div>
           <div class="case-section__content">
 
-            <!-- Antes / Después en paralelo — imágenes -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
-              <div>
+            <!-- Antes / Después — imagen + pie + bullets en columnas alineadas -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;">
+
+              <!-- Columna Antes -->
+              <div style="display: flex; flex-direction: column;">
                 <p style="margin: 0 0 8px; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; color: #c0392b;">Antes · 5 planes</p>
                 <img
                   src="assets/images/planes-antes.png"
@@ -467,9 +469,21 @@
                   class="case-main-image"
                   style="width: 100%; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); display: block; cursor: pointer; margin-bottom: 0;"
                 >
-                <p style="font-size: 13px; color: #666; margin: 6px 0 0; line-height: 1.5;">Cinco planes simultáneos, nombres orientados al canal, sin guía de perfil.</p>
+                <p style="font-size: 13px; color: #666; margin: 6px 0 16px; line-height: 1.5;">Cinco planes simultáneos, nombres orientados al canal, sin guía de perfil.</p>
+                <div class="ba-card" style="flex: 1;">
+                  <div class="ba-header ba-header--before">Antes</div>
+                  <div class="ba-body">
+                    <ul class="ba-list">
+                      <li>5 planes sin jerarquía visible</li>
+                      <li>Nombres orientados al canal de forma aislada ("Por WhatsApp" frente a "Por llamada")</li>
+                      <li>Obligación de elegir el medio de comunicación antes de la compra</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div>
+
+              <!-- Columna Después -->
+              <div style="display: flex; flex-direction: column;">
                 <p style="margin: 0 0 8px; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; color: var(--muted-green);">Después · 2 categorías</p>
                 <img
                   src="assets/images/planes-despues.png"
@@ -477,31 +491,19 @@
                   class="case-main-image"
                   style="width: 100%; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); display: block; cursor: pointer; margin-bottom: 0;"
                 >
-                <p style="font-size: 13px; color: #666; margin: 8px 0 0; line-height: 1.5;">Dos categorías, cuatro planes, etiquetas orientadas al estado del usuario.</p>
+                <p style="font-size: 13px; color: #666; margin: 6px 0 16px; line-height: 1.5;">Dos categorías, cuatro planes, etiquetas orientadas al estado del usuario.</p>
+                <div class="ba-card" style="flex: 1;">
+                  <div class="ba-header ba-header--after">Después</div>
+                  <div class="ba-body">
+                    <ul class="ba-list">
+                      <li>Dos categorías claras: App (autoservicio) vs. Experto (asistido)</li>
+                      <li>4 planes con un diferencial claro basado en urgencia</li>
+                      <li>Unificación de canales: un solo plan experto que incluye tanto WhatsApp como videollamada, dándole control total al usuario para elegir el medio según su necesidad actual</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="ba-grid">
-              <div class="ba-card">
-                <div class="ba-header ba-header--before">Antes</div>
-                <div class="ba-body">
-                  <ul class="ba-list">
-                    <li>5 planes sin jerarquía visible</li>
-                    <li>Nombres orientados al canal de forma aislada ("Por WhatsApp" frente a "Por llamada")</li>
-                    <li>Obligación de elegir el medio de comunicación antes de la compra</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="ba-card">
-                <div class="ba-header ba-header--after">Después</div>
-                <div class="ba-body">
-                  <ul class="ba-list">
-                    <li>Dos categorías claras: App (autoservicio) vs. Experto (asistido)</li>
-                    <li>4 planes con un diferencial claro basado en urgencia</li>
-                    <li>Unificación de canales: un solo plan experto que incluye tanto WhatsApp como videollamada, dándole control total al usuario para elegir el medio según su necesidad actual</li>
-                  </ul>
-                </div>
-              </div>
             </div>
 
             <div class="role-note" style="margin-top: 16px;">
