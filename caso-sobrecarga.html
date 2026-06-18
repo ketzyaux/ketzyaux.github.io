@@ -382,36 +382,42 @@
           </div>
         </article>
 
-        <!-- 03 Análisis -->
+        <!-- 03 Diagnóstico Conductual -->
         <article class="case-section">
           <div class="case-section__sidebar">
-            <span class="case-section__number">03 — Análisis</span>
-            <h2 class="case-section__title">Heurísticas detectadas</h2>
-            <p style="margin-top: 16px; opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Revisé la pantalla contra las heurísticas de Nielsen, identificando tres violaciones que podrían explicar la fricción observada en los datos.</p>
+            <span class="case-section__number">03 — El Diagnóstico Conductual</span>
+            <h2 class="case-section__title">Por qué el análisis heurístico tradicional no era suficiente</h2>
           </div>
           <div class="case-section__content">
 
-            <p>La temporada de declaraciones de renta estaba encima. Reclutar usuarios y hacer pruebas antes del lanzamiento no era viable. Elegí análisis heurístico porque permite identificar fricción con criterio experto sin tiempo de reclutamiento, y porque el problema era suficientemente observable en la interfaz como para no necesitar usuarios para nombrarlo. Lo que no podía hacer el método era confirmar si las soluciones funcionarían. Eso lo respondería el lanzamiento.</p>
+            <p>La temporada de declaraciones de renta estaba encima y reclutar usuarios para pruebas no era viable en esa ventana de tiempo. Elegí un análisis experto, pero en lugar de limitarme a la usabilidad tradicional, audité la interfaz cruzando las heurísticas de UX con principios de Economía del Comportamiento.</p>
+            <p>El objetivo no era solo hacer la página "más bonita", sino entender cómo la arquitectura de la información afectaba el estado emocional y la toma de decisiones del usuario bajo estrés.</p>
 
             <div class="heuristic-item" style="margin-top: 24px;">
               <div class="heuristic-header">
-                <h3 class="heuristic-title">Consistencia y estándares</h3>
+                <h3 class="heuristic-title">1. Sobrecarga de Opciones y Parálisis por Análisis (Paradox of Choice)</h3>
               </div>
-              <p class="heuristic-desc">Los nombres de los planes variaban en longitud y estructura: "Por WhatsApp" frente a "La app lo hace por ti en 24 horas". El usuario no podía escanear y comparar rápidamente; tenía que leer cada bloque completo antes de poder diferenciarlos. Esta inconsistencia rompía el patrón de comparación que el usuario esperaba en una página de precios. Desde el sesgo de anclaje, también significaba que el primer precio visto condicionaba la percepción de todos los demás sin ninguna intención estratégica detrás.</p>
+              <p class="heuristic-desc"><strong>El problema:</strong> La pantalla original exponía simultáneamente 5 planes sin una jerarquía clara, mostrando al mismo tiempo precio, canal, tiempo de entrega y método de comunicación.</p>
+              <p class="heuristic-desc"><strong>El sesgo conductual:</strong> Aplicando la Ley de Hick, cuando aumentas las opciones, el esfuerzo cognitivo crece exponencialmente. Al no haber un anclaje visual claro, el usuario se enfrentaba a una "parálisis por análisis", donde la salida más fácil y segura para el cerebro es el abandono.</p>
+              <p class="heuristic-desc"><strong>La heurística afectada:</strong> Consistencia y estándares. Los nombres variaban en longitud ("Por WhatsApp" frente a "La app lo hace por ti en 24 horas"), rompiendo el patrón de comparación rápida que el usuario espera en una tabla de precios.</p>
             </div>
 
             <div class="heuristic-item">
               <div class="heuristic-header">
-                <h3 class="heuristic-title">Reconocimiento sobre recuerdo</h3>
+                <h3 class="heuristic-title">2. Efecto de Encuadre (Framing Effect) y Carga Cognitiva</h3>
               </div>
-              <p class="heuristic-desc">Entender qué diferenciaba a cada plan exigía retener y comparar información de múltiples columnas simultáneamente. El diseño forzaba memoria en lugar de reconocimiento. Aplicando la Ley de Hick, cinco opciones sin jerarquía aumentan el tiempo de decisión y hacen del abandono la salida más fácil. El rediseño reemplazó descripciones extensas por etiquetas cortas ("Sin afán", "Exprés") que comunican la propuesta de valor de un vistazo.</p>
+              <p class="heuristic-desc"><strong>El problema:</strong> Entender la diferencia entre planes exigía que el usuario retuviera información técnica en su memoria de trabajo mientras escaneaba las columnas.</p>
+              <p class="heuristic-desc"><strong>El sesgo conductual:</strong> El cerebro busca la facilidad cognitiva. El rediseño aplicó el Efecto de Encuadre, reemplazando descripciones técnicas y de infraestructura por etiquetas orientadas al estado mental del usuario ("Sin afán" vs. "Exprés"). Cambiamos el marco de referencia: de explicar cómo funciona el software a validar la urgencia del usuario.</p>
+              <p class="heuristic-desc"><strong>La heurística afectada:</strong> Reconocimiento sobre recuerdo. Aliviamos la memoria de trabajo permitiendo que el usuario se identifique con un perfil de un vistazo, en lugar de obligarlo a calcular el valor de cada característica.</p>
             </div>
 
             <div class="heuristic-item">
               <div class="heuristic-header">
-                <h3 class="heuristic-title">Diseño estético y minimalista</h3>
+                <h3 class="heuristic-title">3. Aversión a la Pérdida y Fricción Emocional</h3>
               </div>
-              <p class="heuristic-desc">La pantalla original exponía simultáneamente precio, canal, tiempo de entrega y método de comunicación para cada uno de los 5 planes. Toda la información visible al mismo tiempo, sin progresión. Esto agrava el efecto de aversión a la pérdida: declarar renta ya activa una respuesta emocional negativa, y cada elemento de fricción adicional se acumula sobre un usuario que llega predispuesto. El rediseño introduce un flujo de dos pasos: primero la modalidad del servicio, luego el nivel de urgencia. Menos decisiones en paralelo, más claridad en cada momento.</p>
+              <p class="heuristic-desc"><strong>El problema:</strong> Declarar renta ya activa una respuesta emocional negativa (ansiedad por pagar, miedo a la DIAN). La interfaz original tiraba toda la información cruda en un solo paso.</p>
+              <p class="heuristic-desc"><strong>El sesgo conductual:</strong> Bajo la Aversión a la Pérdida, cualquier elemento de fricción o confusión en el diseño no se percibe como un "problema de usabilidad", sino como una amenaza o una alerta de peligro, lo que dispara el rebote.</p>
+              <p class="heuristic-desc"><strong>La solución en el flujo:</strong> El rediseño introduce un flujo de dos pasos (modalidad de servicio ➔ nivel de urgencia). Menos decisiones en paralelo disminuyen la fricción emocional, permitiendo que el usuario avance con una sensación de control.</p>
             </div>
 
           </div>
